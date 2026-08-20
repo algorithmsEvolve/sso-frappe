@@ -1,0 +1,71 @@
+{
+  "name": "sso-frappe",
+  "version": "0.1.0",
+  "description": "Reusable OAuth2/OIDC client for adding 'Login with Frappe' to any Next.js or Node.js project.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Akbar Riski",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/algorithmsEvolve/sso-frappe.git"
+  },
+  "keywords": [
+    "frappe",
+    "oauth",
+    "oidc",
+    "sso",
+    "next-auth",
+    "auth",
+    "login"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./server": {
+      "types": "./dist/server.d.ts",
+      "import": "./dist/server.js",
+      "require": "./dist/server.cjs"
+    },
+    "./next-auth": {
+      "types": "./dist/next-auth.d.ts",
+      "import": "./dist/next-auth.js",
+      "require": "./dist/next-auth.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit -p tsconfig.typecheck.json",
+    "lint": "eslint ."
+  },
+  "peerDependencies": {
+    "next-auth": "^5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "next-auth": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.2",
+    "eslint": "^9.0.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.8"
+  }
+}
