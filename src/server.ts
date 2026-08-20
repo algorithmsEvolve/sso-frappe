@@ -124,3 +124,4 @@ export function createFrappeSSO(
 
 export { defineFrappeSSOConfig } from './config';
 export { frappeProvider } from './providers/frappe';
+export { validateState } from './oauth/state';

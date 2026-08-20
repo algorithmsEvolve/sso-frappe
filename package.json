@@ -1,7 +1,7 @@
 {
   "name": "sso-frappe",
-  "version": "0.1.0",
-  "description": "Reusable OAuth2/OIDC client for adding 'Login with Frappe' to any Next.js or Node.js project.",
+  "version": "0.2.0",
+  "description": "Reusable OAuth2/OIDC client for adding 'Login with Frappe' to any Next.js, React, Vue, Nuxt, or Node.js project.",
   "type": "module",
   "license": "MIT",
   "author": "Akbar Riski",
@@ -16,7 +16,11 @@
     "sso",
     "next-auth",
     "auth",
-    "login"
+    "login",
+    "react",
+    "vue",
+    "nuxt",
+    "spa"
   ],
   "exports": {
     ".": {
@@ -28,6 +32,10 @@
       "types": "./dist/server.d.ts",
       "import": "./dist/server.js",
       "require": "./dist/server.cjs"
+    },
+    "./browser": {
+      "types": "./dist/browser.d.ts",
+      "import": "./dist/browser.js"
     },
     "./next-auth": {
       "types": "./dist/next-auth.d.ts",
@@ -66,6 +74,7 @@
     "eslint": "^9.0.0",
     "tsup": "^8.3.5",
     "typescript": "^5.7.0",
+    "typescript-eslint": "^8.67.0",
     "vitest": "^2.1.8"
   }
 }

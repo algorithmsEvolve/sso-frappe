@@ -1,5 +1,6 @@
 export { defineFrappeSSOConfig } from './config';
 export { DEFAULT_BUTTON_LABEL, DEFAULT_TIMEOUT_MS } from './config';
+export { validateState } from './oauth/state';
 export type {
   FrappeSSOConfig,
   NormalizedFrappeSSOConfig,
