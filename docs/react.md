@@ -152,7 +152,7 @@ app.post('/api/auth/frappe/callback', async (req, res) => {
     const token = await sso.exchangeCode({ code, codeVerifier });
     const profile = await sso.getUserProfile(token);
 
-    // Match/create local user (Pattern C schema shown in docs/database-schema.md)
+    // Match/create local user (see docs/database-schema.md)
     const user = await upsertUserFromFrappe(profile);
 
     req.session.userId = user.id;
@@ -164,7 +164,7 @@ app.post('/api/auth/frappe/callback', async (req, res) => {
 });
 ```
 
-## Pattern C: recommended user matching
+## Recommended user matching
 
 1. Look up `user_identities(provider='frappe', provider_subject=profile.subject)`
 2. If missing, fallback to `users.email = profile.email`

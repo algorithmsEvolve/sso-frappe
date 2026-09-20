@@ -1,14 +1,6 @@
-# Database schema (Pattern C — identity providers)
+# Recommended database schema
 
-Recommended schema for storing SSO users. Pattern C = `users` + `user_identities` — one user can log in via Frappe, Google, GitHub, **and** password. Adding a new provider = inserting a row, not altering a table.
-
-## Why not Pattern A or B?
-
-| Pattern | Structure | Problem |
-|---------|-----------|---------|
-| A — single table | `users` + `frappe_subject`, `is_frappe`, `google_subject`, `is_google`... | Table grows a column pair per provider. Not scalable. |
-| B — one table per provider | `users` + `user_frappes`, `user_googles`... | One table per provider. Not scalable. |
-| **C — identity providers table** | `users` + `user_identities` | **Recommended.** New provider = new row. |
+Recommended schema for storing SSO users: `users` + `user_identities` — one user can log in via Frappe, Google, GitHub, **and** password. Adding a new provider = inserting a row, not altering a table.
 
 ## Schema
 
@@ -41,7 +33,7 @@ CREATE TABLE user_identities (
 );
 ```
 
-## Match/create logic (the canonical order)
+## Match/create logic
 
 Always **subject first, email fallback**:
 
@@ -110,7 +102,7 @@ req.session.userId = user.id;
 - **`is_frappe` boolean** — redundant. Query `user_identities WHERE user_id = ? AND provider = 'frappe'` instead.
 - **Access/refresh tokens** — if you need to call Frappe APIs later, store tokens in a dedicated `frappe_tokens` table (or cache), not in `user_identities`.
 
-## Seeding / linked accounts UX (optional)
+## Linked accounts UX (optional)
 
 - **Link existing account**: after email fallback match, notify the user "your account has been linked" on first SSO login.
 - **Unlink**: delete the row from `user_identities`. The `users` row stays.

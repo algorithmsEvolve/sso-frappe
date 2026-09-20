@@ -145,7 +145,7 @@ async signIn({ user, account }) {
 }
 ```
 
-> See [database schema](database-schema.md) for the recommended `user_identities` (Pattern C) schema — the example above uses a simple `users` table for brevity.
+> See [database schema](database-schema.md) for the recommended `user_identities` schema — the example above uses a simple `users` table for brevity.
 
 ## Edge Runtime warning
 

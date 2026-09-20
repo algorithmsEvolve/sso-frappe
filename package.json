@@ -1,6 +1,6 @@
 {
   "name": "sso-frappe",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Reusable OAuth2/OIDC client for adding 'Login with Frappe' to any Next.js, React, Vue, Nuxt, or Node.js project.",
   "type": "module",
   "license": "MIT",
@@ -62,7 +62,7 @@
     "lint": "eslint ."
   },
   "peerDependencies": {
-    "next-auth": "^5.0.0"
+    "next-auth": ">=5.0.0-beta.0 <6"
   },
   "peerDependenciesMeta": {
     "next-auth": {

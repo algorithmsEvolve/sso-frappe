@@ -90,7 +90,7 @@ export default defineEventHandler(async (event) => {
   const token = await sso.exchangeCode({ code, codeVerifier });
   const profile = await sso.getUserProfile(token);
 
-  // Match/create user (Pattern C — see docs/database-schema.md)
+  // Match/create user (see docs/database-schema.md)
   const user = await upsertUserFromFrappe(profile);
 
   // Set app session
